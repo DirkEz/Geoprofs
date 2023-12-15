@@ -1,0 +1,80 @@
+﻿@page
+@model geoprofs.Pages.VerlofAanvragen.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Aanvraag</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Aanvraag.Id" />
+            <div class="form-group">
+                <label asp-for="Aanvraag.WerknemersId" class="control-label"></label>
+                <input asp-for="Aanvraag.WerknemersId" class="form-control" />
+                <span asp-validation-for="Aanvraag.WerknemersId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Aanvraag.VanafDatum" class="control-label"></label>
+                <input asp-for="Aanvraag.VanafDatum" class="form-control" />
+                <span asp-validation-for="Aanvraag.VanafDatum" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Aanvraag.TotDatum" class="control-label"></label>
+                <input asp-for="Aanvraag.TotDatum" class="form-control" />
+                <span asp-validation-for="Aanvraag.TotDatum" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Aanvraag.Vakantie" class="control-label"></label>
+                <input asp-for="Aanvraag.Vakantie" class="form-control" />
+                <span asp-validation-for="Aanvraag.Vakantie" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Aanvraag.Persoonlijk" class="control-label"></label>
+                <input asp-for="Aanvraag.Persoonlijk" class="form-control" />
+                <span asp-validation-for="Aanvraag.Persoonlijk" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Aanvraag.Ziek" class="control-label"></label>
+                <input asp-for="Aanvraag.Ziek" class="form-control" />
+                <span asp-validation-for="Aanvraag.Ziek" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Aanvraag.Goedkeuring" class="control-label"></label>
+                <input asp-for="Aanvraag.Goedkeuring" class="form-control" />
+                <span asp-validation-for="Aanvraag.Goedkeuring" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Aanvraag.OndersteundDoor" class="control-label"></label>
+                <input asp-for="Aanvraag.OndersteundDoor" class="form-control" />
+                <span asp-validation-for="Aanvraag.OndersteundDoor" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Aanvraag.WerknemerId" class="control-label"></label>
+                <select asp-for="Aanvraag.WerknemerId" class="form-control" asp-items="ViewBag.WerknemerId"></select>
+                <span asp-validation-for="Aanvraag.WerknemerId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Aanvraag.OndersteundDoorWerknemerId" class="control-label"></label>
+                <select asp-for="Aanvraag.OndersteundDoorWerknemerId" class="form-control" asp-items="ViewBag.OndersteundDoorWerknemerId"></select>
+                <span asp-validation-for="Aanvraag.OndersteundDoorWerknemerId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
