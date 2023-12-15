@@ -1,3 +1,6 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using geoprofs.Data;
 namespace geoprofs
 {
     public class Program
@@ -5,6 +8,8 @@ namespace geoprofs
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+            builder.Services.AddDbContext<geoprofsContext>(options =>
+                options.UseSqlServer(builder.Configuration.GetConnectionString("geoprofsContext") ?? throw new InvalidOperationException("Connection string 'geoprofsContext' not found.")));
 
             // Add services to the container.
             builder.Services.AddRazorPages();
