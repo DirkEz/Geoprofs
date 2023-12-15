@@ -1,0 +1,82 @@
+﻿@page
+@model geoprofs.Pages.VerlofAanvragen.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Aanvraag</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Aanvraag.WerknemersId)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Aanvraag.WerknemersId)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Aanvraag.VanafDatum)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Aanvraag.VanafDatum)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Aanvraag.TotDatum)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Aanvraag.TotDatum)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Aanvraag.Vakantie)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Aanvraag.Vakantie)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Aanvraag.Persoonlijk)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Aanvraag.Persoonlijk)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Aanvraag.Ziek)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Aanvraag.Ziek)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Aanvraag.Goedkeuring)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Aanvraag.Goedkeuring)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Aanvraag.OndersteundDoor)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Aanvraag.OndersteundDoor)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Aanvraag.Werknemer)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Aanvraag.Werknemer.Achternaam)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Aanvraag.OndersteundDoorWerknemer)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Aanvraag.OndersteundDoorWerknemer.Achternaam)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="Aanvraag.Id" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-page="./Index">Back to List</a>
+    </form>
+</div>
