@@ -14,5 +14,7 @@ namespace geoprofs.Data
         {
         }
         public DbSet<Aanvraag>? Aanvraag { get; set; }
+        public DbSet<geoprofs.Models.Werknemer>? Werknemer { get; set; }
+        public DbSet<geoprofs.Models.Positie>? Positie { get; set; }
     }
 }

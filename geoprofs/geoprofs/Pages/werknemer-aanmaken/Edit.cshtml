@@ -1,0 +1,90 @@
+﻿@page
+@model geoprofs.Pages.werknemer_aanmaken.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Werknemer</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Werknemer.Id" />
+            <div class="form-group">
+                <label asp-for="Werknemer.Voornaam" class="control-label"></label>
+                <input asp-for="Werknemer.Voornaam" class="form-control" />
+                <span asp-validation-for="Werknemer.Voornaam" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Werknemer.Achternaam" class="control-label"></label>
+                <input asp-for="Werknemer.Achternaam" class="form-control" />
+                <span asp-validation-for="Werknemer.Achternaam" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Werknemer.Email" class="control-label"></label>
+                <input asp-for="Werknemer.Email" class="form-control" />
+                <span asp-validation-for="Werknemer.Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Werknemer.Wachtwoord" class="control-label"></label>
+                <input asp-for="Werknemer.Wachtwoord" class="form-control" />
+                <span asp-validation-for="Werknemer.Wachtwoord" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Werknemer.DatumIndienst" class="control-label"></label>
+                <input asp-for="Werknemer.DatumIndienst" class="form-control" />
+                <span asp-validation-for="Werknemer.DatumIndienst" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Werknemer.BSN" class="control-label"></label>
+                <input asp-for="Werknemer.BSN" class="form-control" />
+                <span asp-validation-for="Werknemer.BSN" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Werknemer.SaldoVerlof" class="control-label"></label>
+                <input asp-for="Werknemer.SaldoVerlof" class="form-control" />
+                <span asp-validation-for="Werknemer.SaldoVerlof" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Werknemer.Vakantie" class="control-label"></label>
+                <input asp-for="Werknemer.Vakantie" class="form-control" />
+                <span asp-validation-for="Werknemer.Vakantie" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Werknemer.Persoonlijk" class="control-label"></label>
+                <input asp-for="Werknemer.Persoonlijk" class="form-control" />
+                <span asp-validation-for="Werknemer.Persoonlijk" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Werknemer.Ziek" class="control-label"></label>
+                <input asp-for="Werknemer.Ziek" class="form-control" />
+                <span asp-validation-for="Werknemer.Ziek" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Werknemer.PositieId" class="control-label"></label>
+                <select asp-for="Werknemer.PositieId" class="form-control" asp-items="ViewBag.PositieId"></select>
+                <span asp-validation-for="Werknemer.PositieId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Werknemer.SupervisorId" class="control-label"></label>
+                <input asp-for="Werknemer.SupervisorId" class="form-control" />
+                <span asp-validation-for="Werknemer.SupervisorId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,91 @@
+﻿@page
+@model geoprofs.Pages.werknemer_aanmaken.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Werknemer</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Werknemer.Voornaam)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Werknemer.Voornaam)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Werknemer.Achternaam)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Werknemer.Achternaam)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Werknemer.Email)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Werknemer.Email)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Werknemer.Wachtwoord)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Werknemer.Wachtwoord)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Werknemer.DatumIndienst)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Werknemer.DatumIndienst)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Werknemer.BSN)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Werknemer.BSN)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Werknemer.SaldoVerlof)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Werknemer.SaldoVerlof)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Werknemer.Vakantie)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Werknemer.Vakantie)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Werknemer.Persoonlijk)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Werknemer.Persoonlijk)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Werknemer.Ziek)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Werknemer.Ziek)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Werknemer.SupervisorId)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Werknemer.SupervisorId)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Werknemer.Positie)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Werknemer.Positie.PositieNaam)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Werknemer?.Id">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>
