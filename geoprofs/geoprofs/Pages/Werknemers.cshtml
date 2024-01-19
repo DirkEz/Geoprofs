@@ -2,3 +2,87 @@
 @model geoprofs.Pages.Werknemers
 @{
 }
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Aanvraag[0].WerknemersId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Aanvraag[0].VanafDatum)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Aanvraag[0].TotDatum)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Aanvraag[0].Vakantie)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Aanvraag[0].Persoonlijk)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Aanvraag[0].Ziek)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Aanvraag[0].Goedkeuring)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Aanvraag[0].OndersteundDoor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Aanvraag[0].Werknemer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Aanvraag[0].OndersteundDoorWerknemer)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Aanvraag)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.WerknemersId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.VanafDatum)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TotDatum)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Vakantie)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Persoonlijk)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ziek)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Goedkeuring)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OndersteundDoor)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Werknemer.Achternaam)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OndersteundDoorWerknemer.Achternaam)
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
