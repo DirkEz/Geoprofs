@@ -28,11 +28,15 @@ namespace geoprofs.Pages
         [BindProperty]
         public string Wachtwoord { get; set; }
 
+        [BindProperty]
+        public string LoggedIn { get; set; }
+
         public IActionResult OnPost()
         {
             var voornaamValue = Voornaam;
             var achternaamValue = Achternaam;
             var wachtwoordValue = Wachtwoord;
+            var LoggedInValue = LoggedIn;
 
             var userInDb = _context.Werknemer
                 .FirstOrDefault(u => u.Voornaam == Voornaam && u.Achternaam == Achternaam && u.Wachtwoord == Wachtwoord);
@@ -45,7 +49,7 @@ namespace geoprofs.Pages
                 // Log successful login
                 _logger.LogInformation($"User '{userInDb.Voornaam}' logged in.");
 
-                return RedirectToPage("/Privacy");
+                return RedirectToPage("/Werknemers");
             }
             else
             {
