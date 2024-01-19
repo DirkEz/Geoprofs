@@ -33,10 +33,10 @@ namespace geoprofs.Pages.VerlofAanvragen
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
-          if (!ModelState.IsValid || _context.Aanvraag == null || Aanvraag == null)
-            {
-                return Page();
-            }
+          //if (!ModelState.IsValid || _context.Aanvraag == null || Aanvraag == null)
+          //  {
+          //      return Page();
+          //  }
 
             _context.Aanvraag.Add(Aanvraag);
             await _context.SaveChangesAsync();

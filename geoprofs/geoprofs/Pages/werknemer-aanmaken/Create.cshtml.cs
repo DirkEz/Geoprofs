@@ -34,10 +34,10 @@ namespace geoprofs.Pages.werknemer_aanmaken
         public async Task<IActionResult> OnPostAsync()
         {
           //if (!ModelState.IsValid || _context.Werknemer == null || Werknemer == null)
-           // {
+          //  {
           //      return Page();
-           // }
-
+          //  }
+        
             _context.Werknemer.Add(Werknemer);
             await _context.SaveChangesAsync();
 
