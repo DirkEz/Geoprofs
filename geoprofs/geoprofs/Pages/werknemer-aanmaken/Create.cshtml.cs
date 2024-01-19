@@ -22,6 +22,7 @@ namespace geoprofs.Pages.werknemer_aanmaken
         public IActionResult OnGet()
         {
         ViewData["PositieId"] = new SelectList(_context.Set<Positie>(), "Id", "PositieNaam");
+        ViewData["SupervisorId"] = new SelectList(_context.Set<Werknemer>(), "Id", "Voornaam");
             return Page();
         }
 

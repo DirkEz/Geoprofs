@@ -1,39 +1,48 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
+using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
 using geoprofs.Data;
-namespace geoprofs
+
+var builder = WebApplication.CreateBuilder(args);
+
+// Configure services
+builder.Services.AddDbContext<geoprofsContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("geoprofsContext")));
+
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>(); // Add this line
+builder.Services.AddRazorPages();
+builder.Services.AddSession();
+
+// Add logging
+builder.Services.AddLogging(logging =>
 {
-    public class Program
-    {
-        public static void Main(string[] args)
-        {
-            var builder = WebApplication.CreateBuilder(args);
-            builder.Services.AddDbContext<geoprofsContext>(options =>
-                options.UseSqlServer(builder.Configuration.GetConnectionString("geoprofsContext") ?? throw new InvalidOperationException("Connection string 'geoprofsContext' not found.")));
+    logging.AddConsole();
+    logging.AddDebug();
+    // Add other logging providers if needed
+});
 
-            // Add services to the container.
-            builder.Services.AddRazorPages();
+var app = builder.Build();
 
-            var app = builder.Build();
-
-            // Configure the HTTP request pipeline.
-            if (!app.Environment.IsDevelopment())
-            {
-                app.UseExceptionHandler("/Error");
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-                app.UseHsts();
-            }
-
-            app.UseHttpsRedirection();
-            app.UseStaticFiles();
-
-            app.UseRouting();
-
-            app.UseAuthorization();
-
-            app.MapRazorPages();
-
-            app.Run();
-        }
-    }
+// Configure the HTTP request pipeline.
+if (!app.Environment.IsDevelopment())
+{
+    app.UseExceptionHandler("/Error");
+    app.UseHsts();
 }
+
+app.UseHttpsRedirection();
+app.UseStaticFiles();
+
+app.UseRouting();
+
+app.UseAuthorization();
+
+app.UseSession();
+
+app.MapRazorPages();
+
+app.Run();

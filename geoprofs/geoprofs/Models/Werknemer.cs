@@ -31,7 +31,7 @@ namespace geoprofs.Models
         [DataType(DataType.Date)]
         public DateTime DatumIndienst { get; set; }
 
-        public string BSN { get; set; }
+        public string BSN { get; set; } = "Vul hier uw bsn in";
 
         [Display(Name = "Saldo verlof")]
         public int SaldoVerlof { get; set; } = 25;
