@@ -1,88 +1,174 @@
 ﻿@page
-@model geoprofs.Pages.Werknemers
 @{
+    ViewBag.Title = "Jouw verlof aanvragen";
 }
-<h1>Index</h1>
 
-<p>
-    <a asp-page="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Aanvraag[0].WerknemersId)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Aanvraag[0].VanafDatum)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Aanvraag[0].TotDatum)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Aanvraag[0].Vakantie)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Aanvraag[0].Persoonlijk)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Aanvraag[0].Ziek)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Aanvraag[0].Goedkeuring)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Aanvraag[0].OndersteundDoor)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Aanvraag[0].Werknemer)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Aanvraag[0].OndersteundDoorWerknemer)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model.Aanvraag)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.WerknemersId)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.VanafDatum)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.TotDatum)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Vakantie)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Persoonlijk)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Ziek)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Goedkeuring)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.OndersteundDoor)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Werknemer.Achternaam)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.OndersteundDoorWerknemer.Achternaam)
-                </td>
-                <td>
-                    <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
-                    <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
-                    <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
-                </td>
-            </tr>
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .full-screen {
+            display: flex;
         }
-    </tbody>
-</table>
+
+        .direction-container {
+            display: flex;
+            width: 70%;
+            margin-right: 21px;
+            flex-direction: column;
+            align-content: space-around;
+            justify-content: flex-end;
+        }
+
+        .two-thirds {
+            border-radius: 24px;
+            height: 650px;
+            background-color: #dddddd;
+            padding: 5px 5px 5px 5px;
+        }
+
+        #profile-container {
+            background-color: red;
+            width: 150px;
+            height: 150px;
+            overflow: hidden;
+            border-radius: 50%;
+        }
+
+        .card1 {
+            background-color: #ffffff;
+            height: 150px;
+            width: 100%;
+            border-radius: 24px;
+        }
+
+        .profile-half {
+            border-radius: 24px;
+            flex: 1;
+            background-color: #969393;
+            color: #ffffff;
+            padding: 20px 0px 0px 0px;
+            display: flex;
+            justify-content: flex-start;
+            flex-direction: column;
+            margin-bottom: 12px;
+            align-items: center;
+        }
+
+        .box {
+            height: 125px;
+            background-color: #dddddd;
+            width: 476px;
+            border-radius: 24px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .box1, .box2, .box3 {
+            height: 75px;
+            background-color: #969393;
+            width: 110px;
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .approve-button {
+            background-color: green;
+            border-radius: 24px;
+            color: #ffffff;
+            padding: 20px;
+            height: 80px;
+            border: none;
+        }
+
+        .verlof-button {
+            background-color: grey;
+            border-radius: 24px;
+            color: #ffffff;
+            padding: 20px;
+            height: 80px;
+            border: none;
+            width:200px;
+        }
+    </style>
+</head>
+<body>
+    <div class="full-screen">
+        <div class="direction-container">
+            <div style="display: flex; justify-content: center; font-weight: bold; font-size: 25px;">
+                Jouw verlof aanvragen
+            </div>
+            <div class="two-thirds">
+                <div class="card1" style="height: fit-content; width: fit-content;">
+                        <div style="display: flex;     flex-direction: column;     align-items: center;">
+                            <div style="display: flex;">
+                            <div style="display: flex; width: 800px;">
+                                <div class="title" style="font-weight: bold; margin-left: 15px;">Reden:</div>
+                                <div class="reason">
+
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                    Officia eaque, reprehenderit, distinctio omnis necessitatibus minus veniam voluptas eum unde ex odio corrupti laudantium magnam animi dolore deserunt nobis quibusdam ratione.
+                                    Ut eos rem odit voluptas atque quasi deleniti officiis minima veritatis incidunt obcaecati blanditiis,
+                                    voluptatum fugiat, quaerat qui, excepturi eveniet.
+                                </div>
+                            </div>
+                            <div style="display: flex; flex-direction: column;">
+                                <div style="font-weight: bold;">
+                                    <div>Vanaf: 23 September 2023</div>
+                                    <div>Tot: 26 September 2023</div>
+                                </div>
+                                Goedkeuring door: <div style="font-weight: bold;">Gordon Ramsey</div>
+								</div>
+							</div><div class="approve-button-container">
+								<button class="approve-button">Goedkeuren</button>
+							</div>
+
+                        </div>
+                        
+                    
+                </div>
+            </div>
+        </div>
+
+        <div class="one-third">
+            <div class="profile-half">
+
+                <div id="profile-container">
+                    <img id="profileImage" src="aDefaultImage.png" />
+                </div>
+                <div style="display: flex; flex-direction: column; align-items: center;">
+                    <h4>Peter Griffin</h4>
+                    <h4>Medewerker</h4>
+                    <h4>Since when: </h4>
+                    01-01-2023
+                    <h4>Email:</h4>
+                    Something@hotmail.com
+                    <h4>Telefoon: </h4>
+                    0610008540
+                </div>
+                <div class="box">
+                    <div style="display: flex; justify-content: center;">Saldo</div>
+                    <div style="display: flex; justify-content: space-around; align-items: center; flex-direction: column;">
+                        <div style="width: 100%; display: flex; justify-content: space-around;">
+                            <div class="box1">Ziek: <br>38 dagen</div>
+                            <div class="box2">Persoonlijk: <br>0 dagen</div>
+                            <div class="box3">Vakantie: <br>2 dagen</div>
+                        </div>
+                        Nog 10 dagen over
+                    </div>
+                </div>
+
+
+
+            </div> <div style="  display: flex;
+            justify-content: center;">
+                <button class="verlof-button" >
+                    Verlof
+                </button>
+			</div>
+        </div>
+    </div>
+</body>
+</html>
