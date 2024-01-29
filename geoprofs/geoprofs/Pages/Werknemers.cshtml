@@ -1,5 +1,6 @@
 ﻿@page
 @{
+    @model WerknemersModel;
     ViewBag.Title = "Jouw verlof aanvragen";
 }
 
@@ -100,36 +101,48 @@
             <div style="display: flex; justify-content: center; font-weight: bold; font-size: 25px;">
                 Jouw verlof aanvragen
             </div>
-            <div class="two-thirds">
-                <div class="card1" style="height: fit-content; width: fit-content;">
-                        <div style="display: flex;     flex-direction: column;     align-items: center;">
+            @foreach (var item in Model.Aanvraag)
+            {
+                <div class="two-thirds">
+                    <div class="card1" style="height: fit-content; width: fit-content;">
+                        <div style="display: flex; flex-direction: column; align-items: center;">
                             <div style="display: flex;">
-                            <div style="display: flex; width: 800px;">
-                                <div class="title" style="font-weight: bold; margin-left: 15px;">Reden:</div>
-                                <div class="reason">
-
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                    Officia eaque, reprehenderit, distinctio omnis necessitatibus minus veniam voluptas eum unde ex odio corrupti laudantium magnam animi dolore deserunt nobis quibusdam ratione.
-                                    Ut eos rem odit voluptas atque quasi deleniti officiis minima veritatis incidunt obcaecati blanditiis,
-                                    voluptatum fugiat, quaerat qui, excepturi eveniet.
+                                <div style="display: flex; width: 800px;">
+                                    <div class="title" style="font-weight: bold; margin-left: 15px;">Reden:</div>
+                                    <div class="reason">
+                                        Ziek: @item.Ziek
+                                        Persoonlijk: @item.Persoonlijk
+                                        Vakantie: @item.Vakantie
+                                    </div>
+                                </div>
+                                <div style="display: flex; flex-direction: column;">
+                                    <div style="font-weight: bold;">
+                                        <div>Vanaf: @item.VanafDatum</div>
+                                        <div>Tot: @item.TotDatum</div>
+                                    </div>
+                                    Goedkeuring door: <div style="font-weight: bold;">@item.Goedkeuring</div>
                                 </div>
                             </div>
-                            <div style="display: flex; flex-direction: column;">
-                                <div style="font-weight: bold;">
-                                    <div>Vanaf: 23 September 2023</div>
-                                    <div>Tot: 26 September 2023</div>
-                                </div>
-                                Goedkeuring door: <div style="font-weight: bold;">Gordon Ramsey</div>
-								</div>
-							</div><div class="approve-button-container">
-								<button class="approve-button">Goedgekeurd</button>
-							</div>
+                            <div class="approve-button-container">
+                                @if (item.Goedkeuring == 2)
+                                {
+                                    <button class="approve-button" style="background-color: green;">Goedgekeurd</button>
+                                }
+                                else if (item.Goedkeuring == 1)
+                                {
+                                    <button class="approve-button" style="background-color: red;">Afgewezen</button>
+                                }
+                                else if (item.Goedkeuring == 0)
+                                {
+                                    <button class="approve-button" style="background-color: yellow; color: black;">Pending</button>
+                                }
 
+                            </div>
                         </div>
-                        
-                    
+                    </div>
                 </div>
-            </div>
+            }
+
         </div>
 
         <div class="one-third">
@@ -139,24 +152,24 @@
                     <img id="profileImage" src="aDefaultImage.png" />
                 </div>
                 <div style="display: flex; flex-direction: column; align-items: center;">
-                    <h4>Peter Griffin</h4>
+                    <h4>@Model.CurrentUser.Voornaam @Model.CurrentUser.Achternaam</h4>
                     <h4>Medewerker</h4>
                     <h4>Since when: </h4>
-                    01-01-2023
+                    @Model.CurrentUser.DatumIndienst
                     <h4>Email:</h4>
-                    Something@hotmail.com
-                    <h4>Telefoon: </h4>
-                    0610008540
+                    @Model.CurrentUser.Email
+                    <h4>ID: </h4>
+                    @Model.CurrentUser.Id
                 </div>
                 <div class="box">
                     <div style="display: flex; justify-content: center;">Saldo</div>
                     <div style="display: flex; justify-content: space-around; align-items: center; flex-direction: column;">
                         <div style="width: 100%; display: flex; justify-content: space-around;">
-                            <div class="box1">Ziek: <br>38 dagen</div>
-                            <div class="box2">Persoonlijk: <br>0 dagen</div>
-                            <div class="box3">Vakantie: <br>2 dagen</div>
+                            <div class="box1">Ziek: <br> @Model.CurrentUser.Ziek dagen</div>
+                            <div class="box2">Persoonlijk: <br> @Model.CurrentUser.Persoonlijk dagen</div>
+                            <div class="box3">Vakantie: <br> @Model.CurrentUser.Vakantie dagen</div>
                         </div>
-                        Nog 10 dagen over
+                        Nog  @Model.CurrentUser.SaldoVerlof dagen over
                     </div>
                 </div>
 
