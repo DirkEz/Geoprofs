@@ -43,16 +43,7 @@
                 <input asp-for="Aanvraag.Ziek" class="form-control" />
                 <span asp-validation-for="Aanvraag.Ziek" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Aanvraag.Goedkeuring" class="control-label"></label>
-                <input asp-for="Aanvraag.Goedkeuring" class="form-control" />
-                <span asp-validation-for="Aanvraag.Goedkeuring" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Aanvraag.OndersteundDoor" class="control-label"></label>
-                <input asp-for="Aanvraag.OndersteundDoor" class="form-control" />
-                <span asp-validation-for="Aanvraag.OndersteundDoor" class="text-danger"></span>
-            </div>
+          
             <div class="form-group">
                 <label asp-for="Aanvraag.WerknemerId" class="control-label"></label>
                 <select asp-for="Aanvraag.WerknemerId" class ="form-control" asp-items="ViewBag.WerknemerId"></select>
