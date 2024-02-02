@@ -9,7 +9,7 @@ namespace geoprofs.Models
         public int Id { get; set; }
 
         [Display(Name = "Werknemer ID")]
-        public int WerknemersId { get; set; } = 0;
+        public int WerknemersId { get; set; } = 1000;
 
         [Display(Name = "Vanaf datum")]
         [DataType(DataType.Date)]
@@ -19,11 +19,7 @@ namespace geoprofs.Models
         [DataType(DataType.Date)]
         public DateTime TotDatum { get; set; }
 
-        public int Vakantie { get; set; } = 0;
-
-        public int Persoonlijk { get; set; } = 0;
-
-        public int Ziek { get; set; } = 0;
+        public string SelectionType { get; set; } = "Niks Geselecteerd";
 
         public int Goedkeuring { get; set; } = 0;
 
@@ -31,7 +27,7 @@ namespace geoprofs.Models
         public int OndersteundDoor { get; set; } = 0;
 
         [Display(Name = "Werknemer ID")]
-        public int WerknemerId { get; set; }
+        public int WerknemerId { get; set; } = 0;
 
         [Display(Name = "Ondersteund door Werknemer ID")]
         public int OndersteundDoorWerknemerId { get; set; } = 0;
